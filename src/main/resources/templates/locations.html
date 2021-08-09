@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/main/resources/static/css/navbar.css" type="text/css">
+    <link rel="stylesheet" href="/css/navbar.css" type="text/css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/footer.css" type="text/css">
+    <link rel="stylesheet" href="/css/footer.css" type="text/css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/locations.css" type="text/css">
+    <link rel="stylesheet" href="/css/locations.css" type="text/css">
+    <title>Scissy | Locations</title>
+</head>
+<body>
+    <div th:insert="navbar" class="import"></div>
+
+    <section id="menu">
+
+        <div id="bailiwick">
+            <div class="menu-button"><a href="/locations?bailiwick=Jersey" >Jersey</a></div>
+            <div class="menu-button"><a href="/locations?bailiwick=Guernsey">Guernsey</a></div>
+        </div>
+
+        <div id="island">
+            <div class="menu-button"><a href="/locations?island=Jersey" >Jersey</a></div>
+            <div class="menu-button"><a href="/locations?island=Guernsey">Guernsey</a></div>
+            <div class="menu-button"><a href="/locations?island=Alderney">Alderney</a></div>
+            <div class="menu-button"><a href="/locations?island=Sark">Sark</a></div>
+            <div class="menu-button"><a href="/locations?island=Burhou">Burhou</a></div>
+        </div>
+    </section>
+
+    <section id="locations">
+        <table>
+            <thead>
+                <th id="daily-forecast-title" colspan="4" th:text="${title}">Daily Forecast</th>
+
+                <th>
+                    <img src="/icons/band/thermometer.svg" alt="Thermometer icon">
+                </th>
+                <th>
+                    <img src="/icons/band/gauge.svg" alt="Pressure icon" >
+                </th>
+                <th>
+                    <img src="/icons/band/humidity.svg" alt="Humidity icon">
+                </th>
+                <th>
+                    <img src="/icons/band/compass.svg" alt="Wind Direction icon">
+                </th>
+                <th>
+                    <img src="/icons/band/wind.svg" alt="Wind icon">
+                </th>
+
+            </thead>
+            <tbody>
+                <tr th:each="location: ${locations}">
+
+                    <td th:text="${location.get('name')}">Rozel </td>
+                    <td th:text="${location.get('bailiwick')}">Jersey </td>
+                    <td th:text="${location.get('island')}">Jersey</td>
+                    <td>
+                        <img th:src="${location.get('icon')}" th:alt="${location.get('condition')}" >
+                    </td>
+                    <td th:text="${location.get('temp')}">6 | 18°C</td>
+                    <td th:text="${location.get('pressure')} + ' hPa'">1013 hPa</td>
+                    <td th:text="${location.get('humidity')} + ' hPa'">100%</td>
+                    <td th:text="${location.get('windDirection')}">290° NE</td>
+                    <td th:text="${location.get('windSpeed')}">30 m/s</td>
+                    <td class="button" id="see-button">
+                        <a th:href="'/weather?id=' + ${location.get('id')}" >See more</a>
+                </td>
+                </tr>
+
+
+            </tbody>
+        </table>
+    </section>
+
+
+    <div th:insert="footer" class="import"></div>
+
+</body>
+</html>

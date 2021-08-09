@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.import {
+    margin: 0%;
+    padding: 0%;
+    width: 100%;
+    overflow: hidden;
+}
+
+section {
+    margin: 0 12.5%;
+}
+
+#menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-bottom: 1em;
+}
+
+.menu-button {
+    width: 5em;
+    height: 1.5em;
+    line-height: 1.5em;
+    border-radius: 10px;
+    color: white;
+    align-content: center;
+}
+
+.menu-button a {
+    color: white;
+}
+
+
+
+#bailiwick .menu-button {
+    background-color: #8D4AA6;
+}
+
+#island .menu-button {
+    background-color: #33A6A6;
+}
+
+#locations {
+    background-color: #33A6A6;
+    border-radius: 5px;
+    text-align: center;
+    table-layout: auto;
+
+}
+
+#locations table {
+    width: 100%;
+    padding: 1em 0;
+    color: white;
+}
+
+#locations img {
+    height: 30px;
+    width: 30px;
+}
+
+#locations tr {
+    margin-top: 1.25em;
+}
+
+#location a:hover{
+    background-color: red;
+}
+
+.button {
+    background-color: #33A6A6;
+    border-color: white;
+    border-radius: 5px;
+    border-width: 5em;
+    text-align: center;
+}
+
+.button a {
+    text-decoration: none;
+    color: white;
+
+}
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+
+    <link  href="/css/weather.css" type="text/css" rel="stylesheet">
+    <link  href="/css/navbar.css" type="text/css" rel="stylesheet">
+    <link  href="/css/footer.css" type="text/css" rel="stylesheet">
+
+    <link  href="/src/main/resources/static/css/weather.css" type="text/css" rel="stylesheet">
+    <link  href="/src/main/resources/static/css/navbar.css" type="text/css" rel="stylesheet">
+    <link  href="/src/main/resources/static/css/footer.css" type="text/css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Mate+SC&display=swap" rel="stylesheet"> 
+
+    <meta charset="UTF-8">
+    <title>Scissy | Home</title>
+
+
+</head>
+<body>
+  <header>
+      <div th:insert="navbar" class="import"></div>
+
+  </header>
+
+    <footer>
+        <div th:insert="footer" class="import"></div>
+    </footer>
+</body>
+</html>

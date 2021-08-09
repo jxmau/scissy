@@ -1,0 +1,307 @@
+
+
+.body {
+    height: 100%;
+    width: 100%;
+}
+
+.grid-bg {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+
+    grid-template-areas: 
+        "left-panel right-panel"
+    ;
+}
+
+.left-panel {
+    grid-area: left-panel;
+   justify-content: space-between;
+    display: grid;
+    height: 30em;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50% 50%;
+    grid-template-areas: 
+        "main-panel main-panel"
+        "atmospheric-panel air-panel"
+    ;
+
+}
+
+.main-panel {
+    grid-area: main-panel;
+    justify-content: center;
+    background-color: white;
+    padding: 2em;
+    height: 15em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "location weather";
+    overflow: hidden;
+    
+}
+
+.location {
+    grid-area: location;
+    width: auto;
+}
+
+.city {
+    color: #33A6A6;
+    font-size: 40px;
+}
+
+.country {
+    color: black;
+    font-size: 30;
+    font-weight: 600;
+    padding-left: 10px;
+
+}
+.gps-coord {
+    color: black;
+    font-size: 11px;
+    font-weight: 600;
+    font-style: italic;
+    padding-left: 13px;
+    padding-top: 5px;
+}
+
+.weather {
+    grid-area: weather;
+    justify-self: right;
+    text-align: right;
+    padding-top: 1.5em;
+}
+
+.weather > img {
+    padding-top: 10px;
+    width: 80px;
+    height: 90px;
+}
+
+
+
+#temp {
+    padding-top: 10px;
+    color: #33A6A6;
+    font-size: 38px;
+    font-weight: 500;
+}
+
+#panel-title {
+    font-size: 20px;
+    font-weight: 700;
+    grid-area: panel-title;
+    text-align: center;
+    align-content: center;
+    position: relative;
+    top: 0px;
+
+}
+
+.atmospheric-panel {
+    margin-top: 2em;
+    font-size: 15px;
+    grid-area: atmospheric-panel;
+    background-color: white;
+    border-color: #33A6A6;
+    border-width: 1px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        "panel-title "
+        "weather-subtitle"
+        "weather-info"
+        "wind-subtitle"
+        "wind-grid"
+        "precipitation-subtitle"
+        "precipitation-grid"
+        "data"
+        ;
+    align-content: center;
+    justify-content: space-around;
+}
+
+.atmospheric-panel .info {
+    font-weight: 700;
+    color: black;
+}
+
+.atmospheric-panel div {
+    font-size: 15px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.panel-subtitle {
+    font-size: 17px;
+    text-align: center;
+    color: black;
+    font-weight: 800;
+    margin-top: 10px;
+}
+
+.panel-subtitle #weather{
+    grid-area: weather-subtitle;
+}
+
+.panel-subtitle #wind{
+    grid-area: wind-subtitle;
+}
+.panel-subtitle #precipitation{
+    grid-area: precipitation-subtitle;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "left-column right-column";
+}
+
+.grid div {
+    margin-top: 2.5px;
+}
+.grid #left-column {
+    grid-area: left-column;
+}
+
+
+.grid #right-column {
+    grid-area: right-column;
+}
+
+#weather-grid {
+    grid-area: weather-info;
+}
+
+#wind-grid {
+    grid-area: wind-grid;
+}
+
+#precipitation-grid {
+    grid-area: precipitation-grid;
+}
+
+
+.air-panel {
+    margin-top: 2em;
+    grid-area: air-panel;
+    background-color: white;
+    align-self: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "panel-title"
+    "molecules-title"
+    "molecules-table "
+    "particulates-title"
+    "particulates-table"
+    "data"
+    ;
+    align-content: center;
+    justify-content: center;
+
+}
+
+
+
+.air-pollution-subtitle {
+    font-size: 17px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    color: black;
+    font-weight: 700;
+}
+
+#molecules-title {
+    grid-area: molecules-title;
+}
+
+.molecules-grid {
+    grid-area: molecules-table;
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "left-column center-column right-column";
+
+
+}
+
+.molecules-grid #left-column{
+    grid-area: left-column;
+}
+.molecules-grid #center-column{
+    grid-area: center-column;
+}
+.molecules-grid #right-column{
+    grid-area: right-column;
+}
+
+.molecules-grid div {
+    text-align: center;
+    margin-top: 2.5px;
+}
+
+
+
+#particulates-title {
+    grid-area: particulates-title;
+}
+
+.particulates-table {
+    grid-area: particulates-table;
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "left-column right-column";
+
+}
+
+.particulates-table #left-column {
+    grid-area: left-column;
+}
+.particulates-table #right-column {
+    grid-area: right-column;
+}
+
+.particulates-table div {
+    text-align: center;
+    margin-top: 4px;
+    justify-content: space-between;
+}
+
+
+.right-panel {
+    grid-area: right-panel;
+    background-color: blue;
+}
+
+#component{
+    color: black;
+    font-weight: 700;
+}
+
+#data {
+    padding-top: 15px;
+    text-align: center;
+    font-size: 11px;
+    font-style: italic;
+    grid-area: data;
+}
+
+@media screen and (max-width: 800px) {
+    .grid-bg {
+        grid-template-columns: 1fr;
+        grid-template-areas: "left-panel"
+        "right-panel";
+    }
+    
+    .main-panel {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "location"
+            "weather"
+        ;
+    }
+}

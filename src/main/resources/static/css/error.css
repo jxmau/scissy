@@ -1,0 +1,25 @@
+.import {
+    margin: 0%;
+    padding: 0%;
+    width: 100%;
+    overflow: hidden;
+}
+
+
+
+
+
+section {
+    width: 100%;
+    color: #8D4AA6;
+    text-align: center;
+    font-size: 30px;
+}
+
+#copyright {
+    font-size: 11px;
+}
+
+#copyright a {
+    font-size: 11px;
+}

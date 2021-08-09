@@ -1,0 +1,38 @@
+<link  href="/src/main/resources/static/css/navbar.css" type="text/css" rel="stylesheet">
+<link  href="/navbar.css" type="text/css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Mate+SC&display=swap" rel="stylesheet"> 
+
+<body>
+    <header>
+        <div class="menu-bar">
+            <a href="/" id="logo">Scissy</a>
+    
+            <nav>
+    
+                <ul class="nav-links" >
+
+                    <li><a href="/weather">Weather</a></li>
+                    <div class="location-dropdown"></li>
+                        <li class="location-dropdown"><a href="/locations">Locations</a></li>
+                        <div class="dropdown-content">
+                            <li><a href="/locations?island=Jersey">Jersey</a></li>
+                            <li><a href="/locations?island=Guernsey">Guernsey</a></li>
+                            <li><a href="/locations?island=Alderney">Alderney</a></li>
+                            <li><a href="/locations?island=Sark">Sark</a></li>
+                            <li><a href="/locations?island=Burhou">Burhou</a></li>
+                        </div>
+                    </div>
+                    <li><a href="/about">About</a></li>
+                </ul>
+            </nav>
+    
+            <form action="/locations/search?q=" method="GET" class="search-bg" >
+                <input type="text" name="q" placeholder="Search" class="search-bar" >
+                <input type="submit" style="display:none;">
+            </form>
+    
+        </div>
+        <div id="bottom-bar"></div>
+    </header>
+</body>

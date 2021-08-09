@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+
+    <link  href="/css/about.css" type="text/css" rel="stylesheet">
+    <link  href="/css/navbar.css" type="text/css" rel="stylesheet">
+    <link  href="/css/footer.css" type="text/css" rel="stylesheet">
+
+    <link  href="/src/main/resources/static/css/about.css" type="text/css" rel="stylesheet">
+    <link  href="/src/main/resources/static/css/navbar.css" type="text/css" rel="stylesheet">
+    <link  href="/src/main/resources/static/css/footer.css" type="text/css" rel="stylesheet">
+   
+    <title>About Scissy</title>
+</head>
+<body>
+
+    <div th:insert="navbar" class="import"></div>
+
+    <h1>About Scissy</h1>
+
+    <section id="what-is-scissy">
+        <h2>
+            What is Scissy ?
+        </h2>
+        <p>
+            Scissy is a personal project of a simple weather interface for the Channel Islands, using the data from OpenWeatherMap.
+        </p>
+    </section>
+
+    <section>
+        <h2>
+            Why this name ?
+        </h2>
+        <p>
+            The name comes from the legendary forest of Scissy. A forest that, following its myth, spread itself on the Mont-Saint-Michel's bay before disappearing in one night, due to a tsunami.
+        </p>
+    </section>
+
+    <section>
+        <h2>
+            How does it work?
+        </h2>
+        <p>
+            Scissy is a Server Side Rendering Web App with independent location, weather and air condition's databases actualized automatically by multi-threading.
+        </p>
+    </section>
+
+    <section>
+        <h2>
+            The Stack
+        </h2>
+
+  
+        <table>
+            <thead>
+                <tr>
+                <th>Languages</th>
+                <th>Frameworks</th>
+
+                <th>Database</th>
+                <th>Packet Manager</th>
+                <th>Code Repository</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="logo-rank">
+                    <td>
+                        <img src="/logo/Java.png" alt="Java" class="logo">
+                        <img src="/logo/html.png" alt="HTML" class="logo">
+                        <img src="/logo/CSS.svg.png" alt="CSS" class="logo">
+                    </td>
+                    <td>
+                        <img src="/logo/spring.png" alt="Spring" class="logo">
+                        <img src="/logo/thymeleaf.png" alt="Thymeleaf" class="logo">
+
+                    </td>
+                    <td>
+                        <img src="/logo/postgres.png" alt="postgres" class="logo">
+                    </td>
+                    <td>
+                        <img src="/logo/maven.png" alt="maven" class="large-logo">
+                    </td>
+                    <td>
+                        <img src="/logo/github.svg" alt="github" class="logo">
+                    </td>
+                </tr>
+                <tr id="dropdown">
+                    <td>
+                        <ul>
+                            <li>Java SDK 16</li>
+                            <li>HTML 5</li>
+                            <li>CSS 3</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Sprig Boot</li>
+                            <li>Spring Web</li>
+                            <li>Spring MVC</li>
+                            <li>JPA Driver</li>
+                            <li>Thymeleaf</li>
+                        </ul>
+
+                    </td>
+                    <td>Postgres</td>
+                    <td>
+                        Apache Maven
+                    </td>
+                    <td>
+                        Github
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <div th:insert="footer" class="import"></div>
+
+
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link  href="/css/weather.css" type="text/css" rel="stylesheet">
+    <link  href="/css/navbar.css" type="text/css" rel="stylesheet">
+    <link  href="/css/footer.css" type="text/css" rel="stylesheet">
+
+    <link  href="/src/main/resources/static/css/weather.css" type="text/css" rel="stylesheet">
+    <link  href="/src/main/resources/static/css/navbar.css" type="text/css" rel="stylesheet">
+    <link  href="/src/main/resources/static/css/footer.css" type="text/css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Mate+SC&display=swap" rel="stylesheet"> 
+
+    <title>Scissy | Weather</title>
+</head>
+<body style="margin: 0 auto; " >
+    <div th:insert="navbar" class="import"></div>
+    
+    <section class="main-panel">
+        <div id="location-column">
+            <p th:text="${location.getName}" class="city">City</p>
+            <p th:text="${location.getPoliticalLocation}" class="country">Country</p>
+            <p th:text="'lat: ' + ${location.getLatitude} + '  lon: ' + ${location.getLongitude}" class="gps-coord">lat: 00,0000  long: 00,0000</p>
+        </div>
+        <div id="weather-column">
+            <!-- <img src="/src/main/resources/static/icons/005-storm-1.svg" th:alt="${weather.get('condition')}" > -->
+            <img th:src="${weather.get('icon')}" th:alt="${weather.get('condition')}" >
+            <div id="separator"></div>
+            <p th:text="${weather.get('temp')}" id="temp">20°C</p>
+        </div>
+    </section>
+
+    <section id="current-weather-section">
+        <div>            
+            <img src="/icons/band/time.svg" alt="Local Time" >
+            <p th:text="${location.getLocalTime}">Sunny</p>
+        </div>
+        <div>
+            <img src="/icons/band/thermometer.svg" alt="Thermometer icon">
+            <p th:text="${weather.get('temp')}">20.0°C</p>
+        </div>
+        <div>
+            <img src="/icons/band/gauge.svg" alt="Pressure icon" >
+            <p th:text="${weather.get('pressure')} + ' hPa'">1013 hPa</p>
+        </div>
+        <div>
+            <img src="/icons/band/humidity.svg" alt="Humidity icon">
+            <p th:text="${weather.get('humidity')} + '%'">100%</p>
+        </div>
+        <div>
+            <img src="/icons/band/wind.svg" alt="Wind icon">
+            <p th:text="${weather.get('windSpeed')}">2.43 m/s</p>
+        </div>
+        <div>
+            <img src="/icons/band/compass.svg" alt="Wind Direction icon">
+            <p th:text="${weather.get('windDirection')}">234 E</p>
+        </div>
+
+    </section>
+
+    <!-- <img src="/src/main/resources/static/photo/jersey.jpg" style="overflow: hidden; width: 100%;" alt=""> -->
+    <img src="/photo/jersey.jpg" style="overflow: hidden; width: 100%;" alt="">
+
+    <section id="copyright-bar">
+        <p>
+            Photo by <a href="https://www.flickr.com/photos/boblinsdell/9767553201/in/photolist-fT8ggF-rrNDP-rrNQU-4RnDex-4RrRCh"> Robert Linsdell </a> - CC BY 2.0
+        </p>
+    </section>
+    <section id="hourly-weather-section">
+        <div th:each="hourlyweather: ${weathers}" id="hourly-box">
+            <div th:text="${hourlyweather.get('time')}" id="title">12:00 AM</div>
+            <img th:src="${hourlyweather.get('icon')}" th:alt="${hourlyweather.get('condition')}" >
+            <p th:text="${hourlyweather.get('temp')}">20.0°C</p>
+        </div>
+
+
+
+    </section>
+
+    <section class="daily-forecast-current-air-section">
+
+        <section class="daily-forecast-section">
+
+
+            <table>
+                <thead>
+                    <th id="daily-forecast-title" colspan="2">Daily Forecast</th>
+
+                    <th>
+                        <img src="/icons/band/thermometer.svg" alt="Thermometer icon">
+                    </th>
+                    <th>
+                        <img src="/icons/band/gauge.svg" alt="Pressure icon" >
+                    </th>
+                    <th>
+                        <img src="/icons/band/compass.svg" alt="Wind Direction icon">
+                    </th>
+                    <th>
+                        <img src="/icons/band/wind.svg" alt="Wind icon">
+                    </th>
+
+                </thead>
+                <tbody>
+                    <tr th:each="daily: ${dailyForecasts}">
+                        <td th:text="${daily.get('date')}">May 4th </td>
+                        <td>
+                            <img th:src="${daily.get('icon')}" th:alt="${daily.get('condition')}" >
+                        </td>
+                        <td th:text="${daily.get('temp')}">6 | 18°C</td>
+                        <td th:text="${daily.get('pressure')} + ' hPa'">1013 hPa</td>
+                        <td th:text="${daily.get('windDirection')}">290° NE</td>
+                        <td th:text="${daily.get('windSpeed')}">30 m/s</td>
+                    </tr>
+
+  
+                </tbody>
+            </table>
+
+
+        </section>
+        <section class="sun-air-section">
+            <section class="sun-section">
+                <table>
+                    <thead>
+                        <th>Sunrise</th>
+                        <th>Sunset</th>
+                    </thead>
+                    <tbody>
+                        <th th:text="${weather.get('sunrise')}"> 08:00 AM</th>
+                        <th th:text="${weather.get('sunset')}"> 08:00 AM</th>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="air-section">
+                <div id="air-condition-section">
+                    <p>Air Quality</p>
+                    <p th:text="${air.get('quality')}" id="variable">Good Condition</p>
+                </div>
+                <div class="air-table-title">Molecules</div>
+                <div class="air-table-section">
+                    <div class="air-column">
+                        <div class="air-component">CO</div>
+                        <div th:text="${air.get('co')}" class="air-variable" >XXX.XX</div>
+                        <div class="air-component">NO</div>
+                        <div th:text="${air.get('no')}" class="air-variable">XX.XX</div>
+                        <div class="air-component">NO2</div>
+                        <div th:text="${air.get('no2')}" class="air-variable">XX.XX</div>
+                    </div>
+                    <div class="air-column">
+                        <div class="air-component">O3</div>
+                        <div th:text="${air.get('o3')}" class="air-variable">CO</div>
+                        <div class="air-component">SO2</div>
+                        <div th:text="${air.get('so2')}" class="air-variable">NO</div>
+                        <div class="air-component">NH3</div>
+                        <div th:text="${air.get('nh3')}" class="air-variable">NO</div>
+                    </div>
+                </div>
+                <div class="air-table-title" style="padding-top: 1em;">Particulates</div>
+                <div class="air-table-section">
+                    <div class="air-column">
+                        <div class="air-component">PM 2.5</div>
+                        <div th:text="${air.get('pm2_5')}" class="air-variable">XXX.XX</div>
+                    </div>
+                    <div class="air-column">
+                        <div class="air-component">PM 10</div>
+                        <div th:text="${air.get('pm10')}" class="air-variable">XX.XX</div>
+
+                    </div>
+                </div>
+
+            </section>
+        </section>
+    </section>
+
+
+
+
+
+
+    <div th:insert="footer" class="import"></div>
+
+
+</body>
+</html>
